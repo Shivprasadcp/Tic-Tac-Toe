@@ -22,9 +22,10 @@ const resetGame = () => {
     turn = true;
     enableBoxes();
     msgContainer.classList.add("hide");
-
-
+    count=0;
 }
+
+let count = 0
 
     boxes.forEach((box)=> {
         box.addEventListener("click", () =>{
@@ -40,6 +41,13 @@ const resetGame = () => {
             }
             box.disabled = true;
             checkWinner();
+            count++;
+            if (count===9 ){
+                msg.innerText = "Its a Draw";
+                msgContainer.classList.remove("hide");
+                checkWinner();
+                
+            }
         })
     })
 
